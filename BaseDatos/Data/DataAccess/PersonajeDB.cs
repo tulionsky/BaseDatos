@@ -11,7 +11,7 @@ namespace BaseDatos.Data.DataAccess
 {
     internal class personajeDB
     {
-        private String connectionString = "Server=localhost;Database=db_universidad;Uid=root;Pwd=Alejandro2005#;Convert Zero Datetime=true";
+        private String connectionString = "Server=localhost;Database=db_universidad;Uid=root;Pwd=Alejandro2005#";
         public bool ProbarConexion()
         {
             using (MySqlConnection conection = new MySqlConnection(connectionString))
