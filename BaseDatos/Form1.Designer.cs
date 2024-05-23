@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewPersonajes = new System.Windows.Forms.DataGridView();
             this.buttonCargar = new System.Windows.Forms.Button();
@@ -45,8 +46,12 @@
             this.labelhistoria = new System.Windows.Forms.Label();
             this.dateTimePickerfecha = new System.Windows.Forms.DateTimePicker();
             this.textBoxhistoria = new System.Windows.Forms.TextBox();
+            this.buttonActualizar = new System.Windows.Forms.Button();
+            this.buttoneliminar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -62,11 +67,11 @@
             // dataGridViewPersonajes
             // 
             this.dataGridViewPersonajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersonajes.Location = new System.Drawing.Point(240, 265);
+            this.dataGridViewPersonajes.Location = new System.Drawing.Point(43, 265);
             this.dataGridViewPersonajes.Name = "dataGridViewPersonajes";
             this.dataGridViewPersonajes.RowHeadersWidth = 51;
             this.dataGridViewPersonajes.RowTemplate.Height = 24;
-            this.dataGridViewPersonajes.Size = new System.Drawing.Size(606, 272);
+            this.dataGridViewPersonajes.Size = new System.Drawing.Size(977, 272);
             this.dataGridViewPersonajes.TabIndex = 1;
             // 
             // buttonCargar
@@ -119,7 +124,7 @@
             // 
             this.textBoxid.Location = new System.Drawing.Point(114, 12);
             this.textBoxid.Name = "textBoxid";
-            this.textBoxid.Size = new System.Drawing.Size(121, 22);
+            this.textBoxid.Size = new System.Drawing.Size(171, 22);
             this.textBoxid.TabIndex = 7;
             this.textBoxid.Leave += new System.EventHandler(this.textBoxid_Leave);
             // 
@@ -127,7 +132,7 @@
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(114, 55);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(120, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(171, 22);
             this.textBoxNombre.TabIndex = 8;
             // 
             // numericUpDownPower
@@ -139,7 +144,7 @@
             0,
             0});
             this.numericUpDownPower.Name = "numericUpDownPower";
-            this.numericUpDownPower.Size = new System.Drawing.Size(121, 22);
+            this.numericUpDownPower.Size = new System.Drawing.Size(171, 22);
             this.numericUpDownPower.TabIndex = 10;
             // 
             // buttonCrear
@@ -157,7 +162,7 @@
             this.comboBoxRaza.FormattingEnabled = true;
             this.comboBoxRaza.Location = new System.Drawing.Point(114, 98);
             this.comboBoxRaza.Name = "comboBoxRaza";
-            this.comboBoxRaza.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxRaza.Size = new System.Drawing.Size(171, 24);
             this.comboBoxRaza.TabIndex = 12;
             // 
             // buttonbuscar
@@ -190,9 +195,10 @@
             // 
             // dateTimePickerfecha
             // 
+            this.dateTimePickerfecha.Enabled = false;
             this.dateTimePickerfecha.Location = new System.Drawing.Point(178, 183);
             this.dateTimePickerfecha.Name = "dateTimePickerfecha";
-            this.dateTimePickerfecha.Size = new System.Drawing.Size(243, 22);
+            this.dateTimePickerfecha.Size = new System.Drawing.Size(350, 22);
             this.dateTimePickerfecha.TabIndex = 16;
             this.dateTimePickerfecha.Value = new System.DateTime(2024, 5, 22, 10, 19, 17, 0);
             // 
@@ -200,14 +206,48 @@
             // 
             this.textBoxhistoria.Location = new System.Drawing.Point(114, 213);
             this.textBoxhistoria.Name = "textBoxhistoria";
-            this.textBoxhistoria.Size = new System.Drawing.Size(100, 22);
+            this.textBoxhistoria.Size = new System.Drawing.Size(171, 22);
             this.textBoxhistoria.TabIndex = 17;
+            // 
+            // buttonActualizar
+            // 
+            this.buttonActualizar.Location = new System.Drawing.Point(653, 181);
+            this.buttonActualizar.Name = "buttonActualizar";
+            this.buttonActualizar.Size = new System.Drawing.Size(75, 23);
+            this.buttonActualizar.TabIndex = 18;
+            this.buttonActualizar.Text = "Actualizar";
+            this.buttonActualizar.UseVisualStyleBackColor = true;
+            this.buttonActualizar.Click += new System.EventHandler(this.buttonActualizar_Click);
+            // 
+            // buttoneliminar
+            // 
+            this.buttoneliminar.Location = new System.Drawing.Point(653, 212);
+            this.buttoneliminar.Name = "buttoneliminar";
+            this.buttoneliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttoneliminar.TabIndex = 19;
+            this.buttoneliminar.Text = "Eliminar";
+            this.buttoneliminar.UseVisualStyleBackColor = true;
+            this.buttoneliminar.Click += new System.EventHandler(this.buttoneliminar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(788, 77);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(232, 179);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumPurple;
             this.ClientSize = new System.Drawing.Size(1075, 559);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.buttoneliminar);
+            this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.textBoxhistoria);
             this.Controls.Add(this.dateTimePickerfecha);
             this.Controls.Add(this.labelhistoria);
@@ -230,6 +270,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonajes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,6 +295,9 @@
         private System.Windows.Forms.Label labelhistoria;
         private System.Windows.Forms.DateTimePicker dateTimePickerfecha;
         private System.Windows.Forms.TextBox textBoxhistoria;
+        private System.Windows.Forms.Button buttonActualizar;
+        private System.Windows.Forms.Button buttoneliminar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

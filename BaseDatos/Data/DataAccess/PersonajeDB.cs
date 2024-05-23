@@ -67,6 +67,40 @@ namespace BaseDatos.Data.DataAccess
             }
         }
 
+        public int ActualizarPersonaje(int id, string nombre, string raza, int nivelPoder, string historia)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "update personajes_dragon_ball set nombre=@nombre, raza=@raza, nivel_poder=@nivelPoder,historia=@historia where id=@id";
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@raza", raza);
+                    command.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+                    command.Parameters.AddWithValue("@historia", historia);
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public int BorrarPersonaje(int id)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "delete from personajes_dragon_ball where id =@id";
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+
         //Busca un personaje por su ID
         public DataTable BuscarPersonajePorId(int id)
         {

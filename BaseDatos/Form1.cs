@@ -104,5 +104,44 @@ namespace BaseDatos
         {
             BuscarPorId();
         }
+
+        private void buttonActualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBoxid.Text);
+            string nombre = textBoxNombre.Text;
+            string raza = comboBoxRaza.Text;
+            int nivelPoder = (int)numericUpDownPower.Value;
+            string historia = textBoxhistoria.Text;
+            int respuesta = personaje.ActualizarPersonaje(id,nombre, raza, nivelPoder, historia);
+            if (respuesta > 0)
+            {
+                MessageBox.Show("Si se pudo mi rey");
+                dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
+            }
+            else
+            {
+                MessageBox.Show("Algo hiciste mal");
+            }
+        }
+
+        private void buttoneliminar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBoxid.Text);
+            int respuesta = personaje.BorrarPersonaje(id);
+            if (respuesta > 0)
+            {
+                MessageBox.Show("Si se pudo mi rey");
+                textBoxid.Clear();
+                textBoxNombre.Clear();
+                comboBoxRaza.SelectedIndex=-1;
+                numericUpDownPower.Value=0;
+                textBoxhistoria.Clear();
+                dataGridViewPersonajes.DataSource = personaje.LeerPersonajes();
+            }
+            else
+            {
+                MessageBox.Show("Algo hiciste mal");
+            }
+        }
     }
 }
